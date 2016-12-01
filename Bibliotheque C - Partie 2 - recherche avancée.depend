@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1480516305 source:f:\codeblocks projects\bibliotheque c\bibliotheque c - partie 2 - recherche avancée\gestbib.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"init.h"
+
+1480612534 f:\codeblocks projects\bibliotheque c\bibliotheque c - partie 2 - recherche avancée\init.h
+
+1480516323 source:f:\codeblocks projects\bibliotheque c\bibliotheque c - partie 2 - recherche avancée\gestfile.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"init.h"
+
+1480516287 source:f:\codeblocks projects\bibliotheque c\bibliotheque c - partie 2 - recherche avancée\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"init.h"
+
+1480613335 source:f:\codeblocks projects\bibliotheque c\bibliotheque c - partie 2 - recherche avancée\main2.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"init.h"
+
+1480616197 source:f:\codeblocks projects\bibliotheque c\bibliotheque c - partie 2 - recherche avancée\gestrech.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"init.h"
+
