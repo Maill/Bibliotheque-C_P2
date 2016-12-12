@@ -60,10 +60,10 @@ void AdvancedWordSearch(Program* startup){
     int indexLib = userWord[0] - 97;
     if(CheckIfExists(startup, indexLib, userWord) == 1){
         system("cls");
-        sprintf(startup->log, "-- Le mot \"%s\" est dans le dictionnaire. --\n\n", userWord);
+        printf("-- Le mot \"%s\" est dans le dictionnaire. --\n\n", userWord);
     }else{
         system("cls");
-        sprintf(startup->log, "-- Le mot \"%s\" n'existe pas dans le dictionnaire. --\n\n", userWord);
+        printf("-- Le mot \"%s\" n'existe pas dans le dictionnaire. --\n\n", userWord);
     }
     if(UserToleranceThreshold == 0){
         UserToleranceThreshold = 1;
@@ -72,6 +72,7 @@ void AdvancedWordSearch(Program* startup){
     CompareWords(startup, userWord, UserToleranceThreshold);
     printf("\n-- Mot saisi : %s --\n", userWord);
     printf("-- Seuil defini : %i --\n\n", UserToleranceThreshold);
+    getchar(); //mystere, permet de ne pas reset l'affichage au moment de revenir au menu principal
     free(userWord);
     free((int*)UserToleranceThreshold);
 }
