@@ -18,6 +18,7 @@ struct Program {
 	FILE* f;
 	Lib* dictionary;
 	int totalWords;
+	char* log;
 };
 
 typedef struct Program Program;

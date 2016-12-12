@@ -60,10 +60,10 @@ void AdvancedWordSearch(Program* startup){
     int indexLib = userWord[0] - 97;
     if(CheckIfExists(startup, indexLib, userWord) == 1){
         system("cls");
-        printf("-- Le mot \"%s\" est dans le dictionnaire. --\n\n", userWord);
+        sprintf(startup->log, "-- Le mot \"%s\" est dans le dictionnaire. --\n\n", userWord);
     }else{
         system("cls");
-        printf("-- Le mot \"%s\" n'existe pas dans le dictionnaire. --\n\n", userWord);
+        sprintf(startup->log, "-- Le mot \"%s\" n'existe pas dans le dictionnaire. --\n\n", userWord);
     }
     if(UserToleranceThreshold == 0){
         UserToleranceThreshold = 1;
@@ -149,7 +149,9 @@ void FillDicoFromFile(Program* startup){
         CountTotalWords(startup);
         return;
     }
-    printf("%s", "Chargement du fichier en cours...");
+    system("cls");
+    printf("           ------- Dictionnaire C -------\n------- Gestion des fichiers dictionnaire -------\n     ------- Charger un dictionnaire -------\n\n");
+    printf("Chargement en cours, veuillez patienter ...");
     while(!feof(startup->f) && !ferror(startup->f)){
         char* word = malloc(sizeof(char) * 30);
         fscanf(startup->f, "%s", word);
@@ -170,7 +172,6 @@ void FillDicoFromFile(Program* startup){
         SortDico(startup, i);
     }
     WriteOnFile(startup);
-    printf("\n-- Le fichier a ete charge. --\n\n");
 }
 
 //Nettoie les valeurs du dictionnaire en mémoire

@@ -9,6 +9,8 @@ Program* InitMain() {
 	startup->loadedFileName = NULL;
 	startup->f = NULL;
 	startup->totalWords = 0;
+	startup->log = malloc(sizeof(char) * 150);
+	startup->log = "initlog";
 	return startup;
 }
 
@@ -16,8 +18,11 @@ int main()
 {
     Program* startup = InitMain();
     InitLibrary(startup);
+    char choice;
     do{
-        int choice;
+        if(strlen(startup->log) > 10){
+            printf(startup->log);
+        }
         printf("------- Dictionnaire C -------\n\n");
         printf("Fichier charge : ");
         if (startup->loadedFileName == NULL) {
@@ -26,17 +31,27 @@ int main()
             printf("%s\n", (char*)startup->loadedFileName);
         }
         printf("Nombre total de mots : %i\n\n", startup->totalWords);
-        printf("1. Charger un dictionnaire\n2. Recherche avancee\nChoix : ");
-        scanf("%i", &choice);
+        printf("1. Charger un dictionnaire\n2. Recherche avancee\n3. Quitter\nChoix : ");
+        scanf("%c", &choice);
         switch(choice){
-            case 1:
+            case '1':
+                free(startup->log);
+                startup->log = malloc(sizeof(char) * 150);
                 FileMenu(startup);
                 break;
-            case 2:
+            case '2':
+                free(startup->log);
+                startup->log = malloc(sizeof(char) * 150);
                 DicoMenu(startup);
                 break;
+            case '3':
+                return 0;
+                break;
+            default:
+                system("cls");
+                break;
         }
-    }while (1);
+    }while (choice != '1' || choice != '2' || choice != '3');
     return 0;
 }
 
@@ -50,7 +65,7 @@ void FileMenu(Program* startup){
 void DicoMenu(Program* startup){
     if(startup->f == NULL){
         system("cls");
-        printf("/!\\ : Aucun fichier dictionnaire charge, veuillez charger un fichier dictionnaire !\n\n");
+        sprintf(startup->log, "/!\\ : Aucun fichier dictionnaire charge, veuillez charger un fichier dictionnaire !\n\n");
         return;
     }
     system("cls");
